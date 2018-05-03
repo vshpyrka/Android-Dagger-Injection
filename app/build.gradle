@@ -1,0 +1,51 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.goodvin1709.reactivedb"
+        minSdkVersion 23
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+
+    //RxJava
+    implementation "io.reactivex.rxjava2:rxandroid:2.0.2"
+    implementation "io.reactivex.rxjava2:rxjava:2.1.13"
+
+    //Room DB
+    implementation "android.arch.persistence.room:runtime:1.0.0"
+    annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
+    implementation "android.arch.persistence.room:rxjava2:1.0.0"
+
+    // ViewModel
+    implementation "android.arch.lifecycle:viewmodel:1.1.1"
+
+    //For collecting data usage in api < 23.
+    implementation 'com.firebase:firebase-jobdispatcher:0.8.5'
+
+    //Constrain Layout
+    implementation "com.android.support.constraint:constraint-layout:1.1.0"
+
+    //Dagger 2
+    implementation "com.google.dagger:dagger:2.15"
+    implementation "com.google.dagger:dagger-android:2.15"
+    implementation "com.google.dagger:dagger-android-support:2.15"
+    annotationProcessor "com.google.dagger:dagger-compiler:2.15"
+    annotationProcessor "com.google.dagger:dagger-android-processor:2.15"
+}
