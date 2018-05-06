@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "com.goodvin1709.reactivedb"
+        applicationId "com.goodvin1709.bitcoin"
         minSdkVersion 23
         targetSdkVersion 27
         versionCode 1
@@ -18,6 +18,10 @@ android {
     dataBinding {
         enabled = true
     }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
 }
 
 dependencies {
@@ -28,16 +32,18 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:2.0.2"
     implementation "io.reactivex.rxjava2:rxjava:2.1.13"
 
+    //Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-jackson:2.4.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+
     //Room DB
     implementation "android.arch.persistence.room:runtime:1.0.0"
     annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
     implementation "android.arch.persistence.room:rxjava2:1.0.0"
 
-    // ViewModel
-    implementation "android.arch.lifecycle:viewmodel:1.1.1"
-
-    //For collecting data usage in api < 23.
-    implementation 'com.firebase:firebase-jobdispatcher:0.8.5'
+    // ViewModel,LiveData
+    implementation "android.arch.lifecycle:extensions:1.1.1"
 
     //Constrain Layout
     implementation "com.android.support.constraint:constraint-layout:1.1.0"
@@ -48,4 +54,7 @@ dependencies {
     implementation "com.google.dagger:dagger-android-support:2.15"
     annotationProcessor "com.google.dagger:dagger-compiler:2.15"
     annotationProcessor "com.google.dagger:dagger-android-processor:2.15"
+
+    //Yoda Time
+    implementation 'joda-time:joda-time:2.9.9'
 }

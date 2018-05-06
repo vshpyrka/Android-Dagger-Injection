@@ -1,8 +1,8 @@
-package com.goodvin1709.reactivedb.di;
+package com.goodvin1709.bitcoin.di;
 
 import android.app.Application;
 
-import com.goodvin1709.reactivedb.ReactiveDB;
+import com.goodvin1709.bitcoin.ReactiveBitcoin;
 
 import javax.inject.Singleton;
 
@@ -13,8 +13,10 @@ import dagger.android.support.AndroidSupportInjectionModule;
 
 @Singleton
 @Component(modules = {
-        AndroidSupportInjectionModule.class,})
-public interface AppComponent extends AndroidInjector<ReactiveDB> {
+        AndroidSupportInjectionModule.class,
+        AppModule.class,
+        BitcoinModule.class})
+public interface AppComponent extends AndroidInjector<ReactiveBitcoin> {
 
     @Component.Builder
     interface Builder {
