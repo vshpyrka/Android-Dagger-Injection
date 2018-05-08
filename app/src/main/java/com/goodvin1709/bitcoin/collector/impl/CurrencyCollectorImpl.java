@@ -28,6 +28,7 @@ public class CurrencyCollectorImpl implements CurrencyCollector {
     public void start() {
         Observable.interval(UPDATE_TIME_MS, TimeUnit.MILLISECONDS)
                 .flatMap(tick -> service.getCurrency().toObservable())
+                .distinctUntilChanged()
                 .map(CurrencyEntity::new)
                 .flatMapCompletable(repository::addCurrency)
                 .retry()

@@ -12,4 +12,12 @@ public class CurrencyResponse {
 
     @JsonProperty("USD")
     public USD usd;
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof CurrencyResponse) {
+            return usd.equals(((CurrencyResponse) obj).usd);
+        }
+        return super.equals(obj);
+    }
 }

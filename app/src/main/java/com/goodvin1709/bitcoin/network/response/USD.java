@@ -18,4 +18,12 @@ public class USD {
     @JsonProperty("sell")
     public Float sell;
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof USD) {
+            return buy.equals(((USD) obj).buy)
+                    && sell.equals(((USD) obj).sell);
+        }
+        return super.equals(obj);
+    }
 }
