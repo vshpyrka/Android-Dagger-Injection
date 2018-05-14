@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "com.goodvin1709.bitcoin"
+        applicationId "com.goodvin1709.currency"
         minSdkVersion 23
         targetSdkVersion 27
         versionCode 1
@@ -57,4 +57,5 @@ dependencies {
 
     //Yoda Time
     implementation 'joda-time:joda-time:2.9.9'
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
 }

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.goodvin1709.currency.utils.DateUtils"/>
+
+        <variable
+            name="item"
+            type="com.goodvin1709.currency.entity.CurrencyEntity"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{DateUtils.formatDate(item.date)}"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="2018-05-06 15:00:00"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/sell_price(item.sell)}"
+            android:textColor="@color/sell_color"
+            android:textSize="16sp"
+            tools:text="Sell : 19999.99"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/buy_price(item.buy)}"
+            android:textColor="@color/buy_color"
+            android:textSize="16sp"
+            tools:text="Buy : 19999.99"/>
+
+        <view
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="#000000"/>
+    </LinearLayout>
+
+</layout>

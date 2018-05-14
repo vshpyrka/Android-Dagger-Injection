@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Reactive Bitcoin</string>
+    <string name="app_name">Reactive Currency</string>
     <string name="sell_price">Sell: %.2f</string>
     <string name="updating_date">Last Updating: %s</string>
     <string name="buy_price">Buy : %.2f</string>
