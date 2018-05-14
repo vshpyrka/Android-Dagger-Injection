@@ -32,7 +32,7 @@ public class CurrencyHistoryAdapter extends RecyclerView.Adapter<CurrencyHistory
         holder.bind(result);
     }
 
-    public void setCurrencies(List<CurrencyEntity> currencies) {
+    public void setCurrencies(final List<CurrencyEntity> currencies) {
         this.currencies = currencies;
         notifyDataSetChanged();
     }
