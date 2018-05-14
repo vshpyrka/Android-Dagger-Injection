@@ -1,11 +1,11 @@
 package com.goodvin1709.currency.ui.currency;
 
 
-import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,16 +14,10 @@ import com.goodvin1709.currency.databinding.FragmentCurrencyBinding;
 
 import java.util.Objects;
 
-import javax.inject.Inject;
-
-import dagger.android.support.DaggerFragment;
-
-public class CurrencyFragment extends DaggerFragment {
+public class CurrencyFragment extends Fragment {
 
     public static final String TAG = "CurrencyFragment";
 
-    @Inject
-    ViewModelProvider.Factory factory;
     private CurrencyViewModel model;
 
     public static CurrencyFragment newInstance() {
@@ -36,7 +30,7 @@ public class CurrencyFragment extends DaggerFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        model = ViewModelProviders.of(Objects.requireNonNull(getActivity()), factory)
+        model = ViewModelProviders.of(Objects.requireNonNull(getActivity()))
                 .get(CurrencyViewModel.class);
     }
 

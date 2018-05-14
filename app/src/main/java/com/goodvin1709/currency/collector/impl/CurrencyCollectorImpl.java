@@ -7,8 +7,6 @@ import com.goodvin1709.currency.repository.CurrencyRepository;
 
 import java.util.concurrent.TimeUnit;
 
-import javax.inject.Inject;
-
 import io.reactivex.Completable;
 import io.reactivex.Observable;
 
@@ -18,8 +16,7 @@ public class CurrencyCollectorImpl implements CurrencyCollector {
     private final CurrencyRepository repository;
     private final ApiService service;
 
-    @Inject
-    CurrencyCollectorImpl(final CurrencyRepository repository,
+    public CurrencyCollectorImpl(final CurrencyRepository repository,
                           final ApiService service) {
         this.repository = repository;
         this.service = service;

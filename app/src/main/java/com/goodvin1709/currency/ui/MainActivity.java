@@ -4,27 +4,20 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 
 import com.goodvin1709.currency.R;
 import com.goodvin1709.currency.ui.currency.CurrencyFragment;
 import com.goodvin1709.currency.ui.history.CurrencyHistoryFragment;
-import com.goodvin1709.currency.utils.ViewModelFactory;
 
-import javax.inject.Inject;
-
-import dagger.android.support.DaggerAppCompatActivity;
-
-public class MainActivity extends DaggerAppCompatActivity {
-
-    @Inject
-    ViewModelFactory factory;
+public class MainActivity extends AppCompatActivity {
 
     private MainViewModel model;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        model = ViewModelProviders.of(this, factory).get(MainViewModel.class);
+        model = ViewModelProviders.of(this).get(MainViewModel.class);
         DataBindingUtil.setContentView(this, R.layout.activity_main);
         showCurrencyFragment();
         showCurrencyHistoryFragment();

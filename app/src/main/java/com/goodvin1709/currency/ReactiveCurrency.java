@@ -1,14 +1,18 @@
 package com.goodvin1709.currency;
 
-import com.goodvin1709.currency.di.DaggerAppComponent;
+import android.app.Application;
 
-import dagger.android.AndroidInjector;
-import dagger.android.support.DaggerApplication;
+public class ReactiveCurrency extends Application {
 
-public class ReactiveCurrency extends DaggerApplication {
+    public static AppProvider appProvider;
 
     @Override
-    protected AndroidInjector<? extends DaggerApplication> applicationInjector() {
-        return DaggerAppComponent.builder().application(this).build();
+    public void onCreate() {
+        super.onCreate();
+        appProvider = new AppProvider(this);
+    }
+
+    public static AppProvider getAppProvider() {
+        return appProvider;
     }
 }

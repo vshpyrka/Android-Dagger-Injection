@@ -8,16 +8,13 @@ import com.goodvin1709.currency.repository.CurrencyRepository;
 
 import java.util.List;
 
-import javax.inject.Inject;
-
 import io.reactivex.Completable;
 
 public class CurrencyRepositoryImpl implements CurrencyRepository {
 
     private final AppDatabase database;
 
-    @Inject
-    CurrencyRepositoryImpl(final AppDatabase database) {
+    public CurrencyRepositoryImpl(final AppDatabase database) {
         this.database = database;
     }
 
