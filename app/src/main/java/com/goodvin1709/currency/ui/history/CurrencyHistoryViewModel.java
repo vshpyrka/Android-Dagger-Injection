@@ -9,13 +9,17 @@ import com.goodvin1709.currency.repository.CurrencyRepository;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 public class CurrencyHistoryViewModel extends ViewModel {
 
+    @Inject
+    CurrencyRepository repository;
+
     private final LiveData<List<CurrencyEntity>> currencies;
-    private final CurrencyRepository repository;
 
     public CurrencyHistoryViewModel() {
-        repository = ReactiveCurrency.getAppProvider().getCurrencyRepository();
+        ReactiveCurrency.getAppComponent().inject(this);
         currencies = repository.getAllCurrencies();
     }
 

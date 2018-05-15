@@ -2,17 +2,23 @@ package com.goodvin1709.currency;
 
 import android.app.Application;
 
+import com.goodvin1709.currency.di.AppComponent;
+import com.goodvin1709.currency.di.AppModule;
+import com.goodvin1709.currency.di.DaggerAppComponent;
+
 public class ReactiveCurrency extends Application {
 
-    public static AppProvider appProvider;
+    private static AppComponent appComponent;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        appProvider = new AppProvider(this);
+        appComponent = DaggerAppComponent.builder()
+                .appModule(new AppModule(this))
+                .build();
     }
 
-    public static AppProvider getAppProvider() {
-        return appProvider;
+    public static AppComponent getAppComponent() {
+        return appComponent;
     }
 }

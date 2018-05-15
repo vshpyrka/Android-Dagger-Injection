@@ -7,13 +7,17 @@ import com.goodvin1709.currency.ReactiveCurrency;
 import com.goodvin1709.currency.entity.CurrencyEntity;
 import com.goodvin1709.currency.repository.CurrencyRepository;
 
+import javax.inject.Inject;
+
 public class CurrencyViewModel extends ViewModel {
 
+    @Inject
+    CurrencyRepository repository;
+
     private final LiveData<CurrencyEntity> currency;
-    private final CurrencyRepository repository;
 
     public CurrencyViewModel() {
-        repository = ReactiveCurrency.getAppProvider().getCurrencyRepository();
+        ReactiveCurrency.getAppComponent().inject(this);
         currency = repository.getLastCurrency();
     }
 

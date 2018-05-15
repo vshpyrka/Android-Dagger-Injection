@@ -5,15 +5,19 @@ import android.arch.lifecycle.ViewModel;
 import com.goodvin1709.currency.ReactiveCurrency;
 import com.goodvin1709.currency.collector.CurrencyCollector;
 
+import javax.inject.Inject;
+
 import io.reactivex.disposables.Disposable;
 
 public class MainViewModel extends ViewModel {
 
-    private final CurrencyCollector collector;
+    @Inject
+    CurrencyCollector collector;
+
     private Disposable disposable;
 
     public MainViewModel() {
-        this.collector = ReactiveCurrency.getAppProvider().getCurrencyCollector();
+        ReactiveCurrency.getAppComponent().inject(this);
     }
 
     public void startCollecting() {
